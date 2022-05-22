@@ -87,7 +87,8 @@ class Transaction
   end
 
   def message
-    Digest::SHA256.hexdigest([@from, @to, @amount].join)
+    to_hash = [@from, @to, @amount].join
+    Digest::SHA256.hexdigest(to_hash)
   end
 
   def to_s

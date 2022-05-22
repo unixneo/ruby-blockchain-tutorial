@@ -52,9 +52,9 @@ end
 # @param to (port_number)
 # @param amount
 post '/send_money' do
-  to = Client.get_pub_key(params['to'])
+  receiver_pub_key = Client.get_pub_key(params['to'])
   amount = params['amount'].to_i
-  $BLOCKCHAIN.add_to_chain(Transaction.new(PUB_KEY, to, amount, PRIV_KEY))
+  $BLOCKCHAIN.add_to_chain(Transaction.new(PUB_KEY, receiver_pub_key, amount, PRIV_KEY))
   'OK. Block mined!'
 end
 
