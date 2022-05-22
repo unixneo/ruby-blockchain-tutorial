@@ -44,6 +44,12 @@ gem install puma
 bundle
 ```
 
+On macos, bundle as follows:
+
+```bash
+bundle install --path vendor/bundle
+```
+
 To quickly test sinatra:
 
 ```bash
