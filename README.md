@@ -5,7 +5,7 @@ This is a quick test implementation using rails and sinatra of the excellent blo
 ### Let's Build a Blockchain by @Haseeb-Qureshi
 
 ```bash
-    https://github.com/Haseeb-Qureshi/lets-build-a-blockchaim
+    https://github.com/Haseeb-Qureshi/lets-build-a-blockchain
 ```
 
 Required Environmental Vars:
