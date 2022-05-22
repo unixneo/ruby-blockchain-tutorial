@@ -62,7 +62,8 @@ class Block
   end
 
   def full_block(nonce)
-    [@txn.to_s, @prev_block_hash, nonce].compact.join
+    block = [@txn.to_s, @prev_block_hash, nonce].compact.join
+    block
   end
 end
 
