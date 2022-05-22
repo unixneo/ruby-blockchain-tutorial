@@ -89,7 +89,7 @@ ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 # client identi
 ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 # client identified on port 4444
 ```
 
-When those test nodes are up and running, the try this:
+When those 4 test nodes are up and running (1111,2222,3333 & 4444), try this:
 
 ```bash
 ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test1.rb"
