@@ -72,6 +72,8 @@ Puma starting in single mode...
 Use Ctrl-C to stop
 ```
 
+![](../../Desktop/Screen%20Shot%202022-05-22%20at%204.29.20%20PM.png)
+
 After you are sure sinatra is up and running, you can test as follows:
 
 Initialize your blockchain as follows:
