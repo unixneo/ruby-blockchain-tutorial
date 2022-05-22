@@ -96,4 +96,8 @@ When those 4 test nodes are up and running (1111,2222,3333 & 4444), try this:
     ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test1.rb"
 ```
 
+### Known Bugs
+
+- There is an issue with the ```$PEER``` global variable.   It's not being updated properly.  This issue is annoying but does not impact the overall tutorial value.
+
 ### More to come .... 

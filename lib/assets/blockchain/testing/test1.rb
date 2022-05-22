@@ -16,7 +16,7 @@ clients.each do |id|
     end
 end
 
-
+trap("SIGINT") { exit! }
 while true
     pairs.shuffle.each do |pair|
         amounts = [rand(10..20),rand(21..30),rand(100..300),rand(01..400),rand(401..500),rand(501..1000)]
@@ -27,6 +27,7 @@ while true
                 sleep 2
             rescue Exception => e
                 puts "Client.send_money exception #{e}".red
+               
                 next
             end
            
