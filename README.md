@@ -68,16 +68,18 @@ After you are sure sinatra is up and running, you can test as follows:
 Initialize your blockchain as follows:
 
 ```bash
-ruby lib/assets/blockchain/haseebcoin.rb
+cd lib/assets/blockchain/
+ruby haseebcoin.rb
 ```
 
 In a few new termainals instances, try:
 
 ```bash
-ruby lib/assets/blockchain/haseebcoin.rb 1111  # client identified on port 1111
-ruby lib/assets/blockchain/haseebcoin.rb 2222 # client identified on port 2222
-ruby lib/assets/blockchain/haseebcoin.rb 3333  # client identified on port 3333
-ruby lib/assets/blockchain/haseebcoin.rb 4444  # client identified on port 4444
+cd lib/assets/blockchain/
+ruby haseebcoin.rb 1111  # client identified on port 1111
+ruby haseebcoin.rb 2222 # client identified on port 2222
+ruby haseebcoin.rb 3333  # client identified on port 3333
+ruby haseebcoin.rb 4444  # client identified on port 4444
 ```
 
 When those test nodes are up and running, the try this:
