@@ -2,7 +2,8 @@
 
 require 'colorize'
 require 'digest'
-require_relative 'pki'
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/pki"
+
 
 class Block
   NUM_ZEROES = 4

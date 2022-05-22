@@ -8,6 +8,11 @@ This is a quick test implementation using rails and sinatra of the excellent blo
 https://github.com/Haseeb-Qureshi/lets-build-a-blockchaim
 ```
 
+Required Environmental Vars:
+
+```bash
+    export HASEEBCOIN_ROOT=/path/to/your/ruby-blockchain-tutorial   
+```
 
 Gems Installed from the Command Line:
 
@@ -42,15 +47,13 @@ bundle
 To quickly test sinatra:
 
 ```bash
-cd ruby-blockchain-tutorial
-cd lib/assets/blockchain/testing
-ruby test_sinatra.rb
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test_sinatra.rb"
 ```
 
 If all goes well from your  install, you should see something like this:
 
 ```bash
-my_host$ ruby test_sinatra.rb
+my_host$ ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test_sinatra.rb"
 == Sinatra (v2.2.0) has taken the stage on 4567 for development with backup from Puma
 Puma starting in single mode...
 * Puma version: 5.6.4 (ruby 3.0.3-p157) ("Birdie's Version")
@@ -68,24 +71,22 @@ After you are sure sinatra is up and running, you can test as follows:
 Initialize your blockchain as follows:
 
 ```bash
-cd lib/assets/blockchain/
-ruby haseebcoin.rb
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb"
 ```
 
 In a few new termainals instances, try:
 
 ```bash
-cd lib/assets/blockchain/
-ruby haseebcoin.rb 1111  # client identified on port 1111
-ruby haseebcoin.rb 2222 # client identified on port 2222
-ruby haseebcoin.rb 3333  # client identified on port 3333
-ruby haseebcoin.rb 4444  # client identified on port 4444
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 1111 # client identified on port 1111
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 2222 # client identified on port 2222
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 # client identified on port 3333
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 # client identified on port 4444
 ```
 
 When those test nodes are up and running, the try this:
 
 ```bash
-ruby lib/assets/blockchain/testing/test1.rb
+ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test1.rb"
 ```
 
 ### More to come .... 

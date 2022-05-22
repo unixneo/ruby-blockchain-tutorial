@@ -4,9 +4,13 @@ require 'colorize'
 require 'active_support/time'
 require 'yaml'
 require 'thread_safe'
-require_relative 'block'
-require_relative 'client'
-require_relative 'helpers'
+
+puts "HASEEBCOIN_ROOT ENV Variable Not Defined!" if ENV['HASEEBCOIN_ROOT'].nil?
+
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/block"
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client"
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/helpers"
+
 
 PORT, PEER_PORT = ARGV.first(2)
 set :port, PORT

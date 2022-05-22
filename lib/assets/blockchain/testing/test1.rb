@@ -1,4 +1,4 @@
-require_relative '../client.rb'
+require_relative "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client.rb"
 amounts = [1,2,3,4,5,6]
 
 pairs = []
