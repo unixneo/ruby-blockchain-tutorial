@@ -11,8 +11,7 @@ def every(seconds)
   end
 end
 
-NAMES_FILE = "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/names.txt"
-HUMAN_READABLE_NAMES = File.readlines(NAMES_FILE).map(&:chomp)
+
 
 def human_readable_name(pub_key)
   pk_hash = Digest::SHA256.hexdigest(pub_key).to_i(16)

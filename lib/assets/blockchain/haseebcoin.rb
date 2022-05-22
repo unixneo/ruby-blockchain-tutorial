@@ -7,6 +7,7 @@ require 'thread_safe'
 
 puts "HASEEBCOIN_ROOT ENV Variable Not Defined!" if ENV['HASEEBCOIN_ROOT'].nil?
 
+
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/block"
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client"
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/helpers"

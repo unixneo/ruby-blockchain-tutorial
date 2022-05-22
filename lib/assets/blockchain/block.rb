@@ -2,11 +2,12 @@
 
 require 'colorize'
 require 'digest'
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/config"
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/pki"
 
 
 class Block
-  NUM_ZEROES = 4
+  
   attr_reader :own_hash, :prev_block_hash, :txn
 
   def self.create_genesis_block(pub_key, priv_key)
