@@ -4,8 +4,8 @@ This is a quick test implementation using rails and sinatra of the excellent blo
 
 ### Let's Build a Blockchain by @Haseeb-Qureshi
 
-```
-https://github.com/Haseeb-Qureshi/lets-build-a-blockchaim
+```bash
+    https://github.com/Haseeb-Qureshi/lets-build-a-blockchaim
 ```
 
 Required Environmental Vars:
@@ -17,43 +17,43 @@ Required Environmental Vars:
 Gems Installed from the Command Line:
 
 ```bash
-gem install sinatra
-gem install puma
+    gem install sinatra
+    gem install puma
 ```
 
 Gems Added to the Default Rails Gemfile:
 
 ```ruby
-gem "colorize"
-gem "faraday"
-gem "sinatra"
-gem "yaml"
-gem "openssl"
-gem "digest"
-gem "base64"
-gem 'thread_safe'
+    gem "colorize"
+    gem "faraday"
+    gem "sinatra"
+    gem "yaml"
+    gem "openssl"
+    gem "digest"
+    gem "base64"
+    gem 'thread_safe'
 ```
 
 Install the core as follows:
 
 ```bash
-git clone https://github.com/unixneo/ruby-blockchain-tutorial.git
-cd ruby-blockchain-tutorial
-gem install sinatra
-gem install puma
-bundle
+    git clone https://github.com/unixneo/ruby-blockchain-tutorial.git
+    cd ruby-blockchain-tutorial
+    gem install sinatra
+    gem install puma
+    bundle
 ```
 
 On macos, bundle as follows:
 
 ```bash
-bundle install --path vendor/bundle
+    bundle install --path vendor/bundle
 ```
 
 To quickly test sinatra:
 
 ```bash
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test_sinatra.rb"
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test_sinatra.rb"
 ```
 
 If all goes well from your  install, you should see something like this:
@@ -77,22 +77,22 @@ After you are sure sinatra is up and running, you can test as follows:
 Initialize your blockchain as follows:
 
 ```bash
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb"
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb"
 ```
 
 In a few new termainals instances, try:
 
 ```bash
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 1111 # client identified on port 1111
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 2222 # client identified on port 2222
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 # client identified on port 3333
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 # client identified on port 4444
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 1111 # client on port 1111
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 2222 # client on port 2222
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 # client on port 3333
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 # client on port 4444
 ```
 
 When those 4 test nodes are up and running (1111,2222,3333 & 4444), try this:
 
 ```bash
-ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test1.rb"
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test1.rb"
 ```
 
 ### More to come .... 
