@@ -30,7 +30,7 @@ else
 end
 
 every(GOSSIP_TIMING) do
-  $PEERS.dup.each do |port|
+  $PEERS.dup.shuffle.each do |port|
     next if port == PORT
 
     puts "Gossiping about blockchain and peers with #{port.to_s.green}"
