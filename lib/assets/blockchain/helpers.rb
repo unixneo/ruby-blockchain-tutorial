@@ -21,6 +21,9 @@ end
 def readable_balances
   return "" if $BLOCKCHAIN.nil?
   $BLOCKCHAIN.compute_balances.map do |pub_key, balance|
+    pk_hash = Digest::SHA256.hexdigest(pub_key).to_i(16)
+    name = human_readable_name(pub_key) 
+    User.where(name:name,pk_hash:pk_hash).update_all(balance:balance.to_f)
      "#{human_readable_name(pub_key).red} currently has #{balance.to_s.green}"
   end.join("\n")
 end

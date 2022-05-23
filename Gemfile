@@ -18,6 +18,7 @@ gem "openssl"
 gem "digest"
 gem "base64"
 gem 'thread_safe'
+gem 'pluck_to_hash'
 
 
 
