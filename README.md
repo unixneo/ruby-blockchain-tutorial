@@ -42,9 +42,11 @@ Install the core as follows:
 ```bash
     git clone https://github.com/unixneo/ruby-blockchain-tutorial.git
     cd ruby-blockchain-tutorial
-    gem install sinatra
-    gem install puma
+    gem install sinatra    #if not already installed
+    gem install puma       #if not already installed
+    gem install sqlite3    #if not already installed
     bundle
+    rails db:migrate
 ```
 
 On macos, bundle as follows:
