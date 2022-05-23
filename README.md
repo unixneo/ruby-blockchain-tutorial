@@ -8,14 +8,19 @@ This is a quick test implementation using rails and sinatra of the excellent blo
     https://github.com/Haseeb-Qureshi/lets-build-a-blockchain
 ```
 
-Required Environmental Vars:
+### Note:  
+
+This is "tutorial grade only", strictly educational in nature.
+
+
+### Required Environmental Vars:
 
 ```bash
     export HASEEBCOIN_ROOT=/path/to/your/ruby-blockchain-tutorial   
     export RAILS_MAX_THREADS=10    
 ```
 
-Gems Installed from the Command Line:
+### Gems Installed from the Command Line:
 
 ```bash
     gem install sinatra
@@ -23,7 +28,7 @@ Gems Installed from the Command Line:
     gem install sqlite3
 ```
 
-Gems Added to the Default Rails Gemfile:
+### Gems Added to the Default Rails Gemfile:
 
 ```ruby
     gem "colorize"
@@ -37,7 +42,7 @@ Gems Added to the Default Rails Gemfile:
     gem 'pluck_to_hash'
 ```
 
-Install the core as follows:
+### Install the core as follows:
 
 ```bash
     git clone https://github.com/unixneo/ruby-blockchain-tutorial.git
@@ -55,7 +60,7 @@ On macos, bundle as follows:
     bundle install --path vendor/bundle
 ```
 
-To quickly test sinatra:
+### To quickly test sinatra:
 
 ```bash
     ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/testing/test_sinatra.rb"
@@ -77,6 +82,7 @@ Puma starting in single mode...
 Use Ctrl-C to stop
 ```
 
+### Testing
 
 After you are sure sinatra is up and running, you can test as follows:
 
