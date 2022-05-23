@@ -4,6 +4,16 @@ require 'colorize'
 require 'active_support/time'
 require 'yaml'
 require 'thread_safe'
+require 'active_record'
+require 'active_record'
+require 'sqlite3'
+ActiveRecord::Base.establish_connection(
+  :adapter  => 'sqlite3', 
+  :database => "#{ENV['HASEEBCOIN_ROOT']}/db/development.sqlite3"
+)
+class User < ActiveRecord::Base
+end
+
 
 puts "HASEEBCOIN_ROOT ENV Variable Not Defined!" if ENV['HASEEBCOIN_ROOT'].nil?
 
@@ -20,6 +30,9 @@ $PEERS = ThreadSafe::Array.new([PORT])
 #$PEERS = Array.new([PORT])
 
 PRIV_KEY, PUB_KEY = PKI.generate_key_pair
+pk_hash = Digest::SHA256.hexdigest(PUB_KEY).to_i(16)
+name = human_readable_name(PUB_KEY)
+User.create(name: name, pk_hash: pk_hash, last_port: PORT, balance: 0.0)
 
 if PEER_PORT.nil?
   # You are the progenitor!
