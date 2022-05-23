@@ -1,51 +1,37 @@
-require  "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client"
+require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client.rb"
+require "colorize"
+#r = Random.new
 
-amounts = [1,2,3,4,5,6]
+
+clients = [1111,2222,3333,4444,5555,6666]
+
 pairs = []
+clients.each do |id|
+    tos = clients - [id]
+    tos.each do |to|
+        pairs << {
+        :to => to,
+        :from => id,
+        }
+    end
+end
 
-pairs << {
-    :to => 1111,
-    :from => 3333,
-}
-
-pairs << {
-    :to => 2222,
-    :from => 3333,
-}
-
-pairs << {
-    :to => 2222,
-    :from => 1111,
-}
-
-
+trap("SIGINT") { exit! }
 while true
-    pairs.each do |pair|
+    pairs.shuffle.each do |pair|
+        amounts = [rand(10..20),rand(121..130),rand(200..300),rand(333..400),rand(1401..1500),rand(2501..3000)]
         amounts.shuffle.each do |amount|
-        puts "To: #{pair[:to]} From: #{pair[:from]} Amount #{amount}"
-        Client.send_money(pair[:to],pair[:from],amount)
-        sleep 2
+            puts "To: #{pair[:to]} From: #{pair[:from]} Amount #{amount}"
+            begin
+                Client.send_money(pair[:to],pair[:from],amount)
+                sleep 2
+            rescue Exception => e
+                puts "Client.send_money exception #{e}".red
+               
+                next
+            end
+           
+        end
     end
-    end
-
-    pairs << {
-        :to => 2222,
-        :from => 3333,
-    }
-
-    pairs << {
-        :to => 3333,
-        :from => 1111,
-    }
-
-
-    pairs.each do |pair|
-        puts "To: #{pair[:to]} From: #{pair[:from]} Amount #{amount}"
-        amounts.shuffle.each do |amount|
-        Client.send_money(pair[:to],pair[:from],amount)
-        sleep 2
-    end
-    end
-
 end
 

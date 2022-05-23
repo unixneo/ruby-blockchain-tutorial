@@ -59,7 +59,7 @@ class Block
   end
 
   def is_valid_nonce?(nonce)
-    hash(full_block(nonce)).start_with?("0" * NUM_ZEROES)
+    hash(full_block(nonce)).start_with?("0" * NUMBER_OF_NONCE_ZEROES)
   end
 
   def full_block(nonce)

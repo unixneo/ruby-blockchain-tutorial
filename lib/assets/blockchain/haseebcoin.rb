@@ -29,7 +29,7 @@ else
   $PEERS << PEER_PORT
 end
 
-every(3.seconds) do
+every(GOSSIP_TIMING) do
   $PEERS.dup.each do |port|
     next if port == PORT
 
