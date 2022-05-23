@@ -85,9 +85,9 @@ In a few new termainals instances, try:
 
 ```bash
     ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 1111 # client on port 1111
-    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 2222 # client on port 2222
-    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 # client on port 3333
-    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 # client on port 4444
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 2222 1111 # client on port 2222
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 3333 2222 # client on port 3333
+    ruby "$HASEEBCOIN_ROOT/lib/assets/blockchain/haseebcoin.rb" 4444 1111 # client on port 4444
 ```
 
 When those 4 test nodes are up and running (1111,2222,3333 & 4444), try this:
