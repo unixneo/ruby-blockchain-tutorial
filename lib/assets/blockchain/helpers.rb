@@ -37,8 +37,10 @@ def render_state
 end
 
 def gossip_with_peer(port)
-  gossip_response = Client.gossip(port, YAML.dump($PEERS), YAML.dump($BLOCKCHAIN))
-  parsed_response = YAML.load(gossip_response)
+  peers = YAML.dump($PEERS)
+  blockchain = YAML.dump($BLOCKCHAIN)
+  gossip_response = Client.gossip(port, peers, blockchain)
+  parsed_response = YAML.load(gossip_response,  permitted_classes: YAML_PERMITTED_CLASSES)
   their_peers = parsed_response['peers']
   their_blockchain = parsed_response['blockchain']
 

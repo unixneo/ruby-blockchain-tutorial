@@ -42,8 +42,8 @@ end
 # @param blockchain
 # @param peers
 post '/gossip' do
-  their_blockchain = YAML.load(params['blockchain'])
-  their_peers = YAML.load(params['peers'])
+  their_blockchain = YAML.load(params['blockchain'], permitted_classes: YAML_PERMITTED_CLASSES )
+  their_peers = YAML.load(params['peers'],  permitted_classes: YAML_PERMITTED_CLASSES )
   update_blockchain(their_blockchain)
   update_peers(their_peers)
   YAML.dump('peers' => $PEERS, 'blockchain' => $BLOCKCHAIN)
