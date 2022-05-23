@@ -28,8 +28,8 @@ end
 def render_state
   system 'clear'
   puts Time.now.to_s.split[1].light_blue
-  puts "My blockchain: " + $BLOCKCHAIN.to_s
-  puts "Blockchain length: " + ($BLOCKCHAIN || []).length.to_s
+  puts "My blockchain: " + $BLOCKCHAIN.to_s if DEBUG_BLOCKCHAIN
+  puts "Blockchain length: " + ($BLOCKCHAIN || []).length.to_s if DEBUG_BLOCKCHAIN
   puts "PORT: #{PORT}"
   puts "My human-readable name: " + human_readable_name(PUB_KEY).red
   puts "My peers: " + $PEERS.sort.join(", ").to_s.yellow
