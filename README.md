@@ -20,6 +20,7 @@ Gems Installed from the Command Line:
 ```bash
     gem install sinatra
     gem install puma
+    gem install sqlite3
 ```
 
 Gems Added to the Default Rails Gemfile:
@@ -33,6 +34,7 @@ Gems Added to the Default Rails Gemfile:
     gem "digest"
     gem "base64"
     gem 'thread_safe'
+    gem 'pluck_to_hash'
 ```
 
 Install the core as follows:
