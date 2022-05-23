@@ -1,7 +1,5 @@
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client.rb"
 require "colorize"
-#r = Random.new
-
 
 clients = [1111,2222,3333,4444,5555,6666]
 
@@ -27,7 +25,6 @@ while true
                 sleep 2
             rescue Exception => e
                 puts "Client.send_money exception #{e}".red
-               
                 next
             end
            
