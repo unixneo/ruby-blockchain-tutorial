@@ -1,5 +1,5 @@
 # Original Code from: https://github.com/Haseeb-Qureshi/lets-build-a-blockchain/
-
+require 'colorize'
 Thread.abort_on_exception = true
 
 def every(seconds)
@@ -23,7 +23,13 @@ def readable_balances
   $BLOCKCHAIN.compute_balances.map do |pub_key, balance|
     pk_hash = Digest::SHA256.hexdigest(pub_key).to_i(16)
     name = human_readable_name(pub_key) 
-    User.where(name:name,pk_hash:pk_hash).update_all(balance:balance.to_f)
+    if PUB_KEY == pub_key
+      begin
+        User.where(name:name,pk_hash:pk_hash).update_all(balance:balance.to_f)
+      rescue => e
+        puts "DB Exception #{e}".red
+      end
+    end
      "#{human_readable_name(pub_key).red} currently has #{balance.to_s.green}"
   end.join("\n")
 end

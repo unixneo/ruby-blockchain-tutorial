@@ -12,6 +12,7 @@ Required Environmental Vars:
 
 ```bash
     export HASEEBCOIN_ROOT=/path/to/your/ruby-blockchain-tutorial   
+    export RAILS_MAX_THREADS=10    
 ```
 
 Gems Installed from the Command Line:
