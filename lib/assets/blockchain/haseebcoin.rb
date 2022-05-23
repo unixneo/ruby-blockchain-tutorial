@@ -22,7 +22,7 @@ require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/block"
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/client"
 require "#{ENV['HASEEBCOIN_ROOT']}/lib/assets/blockchain/helpers"
 
-
+$prior_balance = 0.0
 PORT, PEER_PORT = ARGV.first(2)
 set :port, PORT
 

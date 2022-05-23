@@ -23,9 +23,13 @@ def readable_balances
   $BLOCKCHAIN.compute_balances.map do |pub_key, balance|
     pk_hash = Digest::SHA256.hexdigest(pub_key).to_i(16)
     name = human_readable_name(pub_key) 
-    if PUB_KEY == pub_key
+    if PUB_KEY == pub_key  
+      
       begin
-        User.where(name:name,pk_hash:pk_hash).update_all(balance:balance.to_f)
+        if balance.to_f != $prior_balance
+          $prior_balance = balance.to_f  
+          User.where(name:name,pk_hash:pk_hash).update_all(balance:balance.to_f)
+        end
       rescue => e
         puts "DB Exception #{e}".red
       end
