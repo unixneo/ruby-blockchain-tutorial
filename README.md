@@ -110,7 +110,7 @@ When those 4 test nodes are up and running (1111,2222,3333 & 4444), try this:
 ### Known Bugs
 
 - Needs better error checking.   
-- There is something odd in how `haseebcoins` are transferred.  I think it would help if the variable were more descriptive so the code is easier to understand and debug.  When testing, I found some oddities where the to/from were seeminginly backwards.
+- There is something odd in how `haseebcoins` are transferred.  I think it would help if the variable were more descriptive so the code is easier to understand and debug.  When testing, I found some oddities where the to/from were seemingly backwards.
 
 
 ### More to come .... 
