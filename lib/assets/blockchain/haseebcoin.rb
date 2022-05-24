@@ -7,6 +7,7 @@ require 'thread_safe'
 require 'active_record'
 require 'active_record'
 require 'sqlite3'
+
 ActiveRecord::Base.establish_connection(
   :adapter  => 'sqlite3', 
   :database => "#{ENV['HASEEBCOIN_ROOT']}/db/development.sqlite3"
@@ -32,7 +33,14 @@ $PEERS = ThreadSafe::Array.new([PORT])
 PRIV_KEY, PUB_KEY = PKI.generate_key_pair
 pk_hash = Digest::SHA256.hexdigest(PUB_KEY).to_i(16)
 name = human_readable_name(PUB_KEY)
-User.create(name: name, pk_hash: pk_hash, last_port: PORT, balance: 0.0)
+
+user_info = User.where(name:name).first
+
+if user_info.nil?
+  User.create(name: name, pk_hash: pk_hash, last_port: PORT, balance: 0.0)
+else
+  User.where(name:name, pk_hash:pk_hash).update_all(last_port:PORT)
+end
 
 if PEER_PORT.nil?
   # You are the progenitor!
@@ -42,10 +50,11 @@ else
   $PEERS << PEER_PORT
 end
 
+
+
 every(GOSSIP_TIMING) do
   $PEERS.dup.shuffle.each do |port|
     next if port == PORT
-
     puts "Gossiping about blockchain and peers with #{port.to_s.green}"
     gossip_with_peer(port)
   end
@@ -65,10 +74,17 @@ end
 # @param to (port_number)
 # @param amount
 post '/send_money' do
-  receiver_pub_key = Client.get_pub_key(params['to'])
   amount = params['amount'].to_i
-  $BLOCKCHAIN.add_to_chain(Transaction.new(PUB_KEY, receiver_pub_key, amount, PRIV_KEY))
-  'OK. Block mined!'
+  pk_hash = Digest::SHA256.hexdigest(PUB_KEY).to_i(16)
+  balance = User.where(pk_hash:pk_hash).pluck(:balance).first
+  if balance.to_f >= amount.to_f
+    receiver_pub_key = Client.get_pub_key(params['to'])
+    $BLOCKCHAIN.add_to_chain(Transaction.new(PUB_KEY, receiver_pub_key, amount, PRIV_KEY))
+    'OK. Block mined!'
+  else
+    puts "Send Money: Balance #{balance} to low for #{name} to send #{amount} Hash #{pk_hash}"
+    nil
+  end
 end
 
 get '/pub_key' do
